@@ -28,4 +28,3 @@ for page_id in pages_id:
     database_id = notion.pegar_id_database(token_integracao, page_id, dia_atual)
 
     notion.database_para_csv(token_integracao, database_id, nome_vendedor)
-

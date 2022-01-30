@@ -1,4 +1,5 @@
 import requests
+import os
 import json_manipulator
 
 
@@ -63,4 +64,10 @@ def database_para_csv(token, database_id, nome_vendedor):
     response = requests.request("POST", url, json=payload, headers=headers)
 
     data = response.json()
-    json_manipulator.to_csv(data, f'data/{nome_vendedor}.csv')
+
+    if not os.path.isdir('dados'):
+        os.mkdir('dados')
+
+    json_manipulator.to_csv(data, f'dados/{nome_vendedor}.csv')
+
+
