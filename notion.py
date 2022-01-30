@@ -69,5 +69,3 @@ def database_para_csv(token, database_id, nome_vendedor):
         os.mkdir('dados')
 
     json_manipulator.to_csv(data, f'dados/{nome_vendedor}.csv')
-
-
