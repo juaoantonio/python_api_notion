@@ -1,4 +1,5 @@
 import notion
+import csv_manipulator
 from decouple import config
 from data_hoje import hoje
 
@@ -10,7 +11,10 @@ from data_hoje import hoje
 # 'Quinta-Feira'
 # 'Sexta-Feira'
 # 'Sábado'
-dia_atual = hoje()
+dia_atual = 'Sexta-Feira'
+
+# Caminho da planilha de análises
+excel_path = r'/home/jaab/Desktop/relatorio/analise.xlsm'
 
 # Token secreto de acesso do Notion
 token_integracao = config('TOKEN')
@@ -23,8 +27,11 @@ pages_id = [
     'f65132a722e04533b81c2cb358d3b36b',
 ]
 
+# Cria os arquivos em csv de cada base de dados do dia escolhido de cada vendedor
 for page_id in pages_id:
     nome_vendedor = notion.pegar_nome_vendedor(token_integracao, page_id)
     database_id = notion.pegar_id_database(token_integracao, page_id, dia_atual)
 
     notion.database_para_csv(token_integracao, database_id, nome_vendedor)
+
+    csv_manipulator.writer_csv_excel(f'dados/{nome_vendedor}.csv', excel_path, 'Dados', nome_vendedor)
