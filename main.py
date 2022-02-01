@@ -12,10 +12,10 @@ from data_hoje import hoje
 # 'Quinta-Feira'
 # 'Sexta-Feira'
 # 'Sábado'
-dia_atual = 'Sexta-Feira'
+dia_atual = hoje()
 
 # Caminho da planilha de análises
-excel_path = filedialog.askopenfile()
+excel_path = filedialog.askopenfile().name
 
 # Token secreto de acesso do Notion
 token_integracao = config('TOKEN')
