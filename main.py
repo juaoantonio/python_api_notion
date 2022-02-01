@@ -1,6 +1,7 @@
 import notion
 import csv_manipulator
 from decouple import config
+from tkinter import filedialog
 from data_hoje import hoje
 
 # Armazena o dia presente por padrão, mas pode configurar com o dia que quiser, basta copiar na váriavel dia_atual
@@ -14,7 +15,7 @@ from data_hoje import hoje
 dia_atual = 'Sexta-Feira'
 
 # Caminho da planilha de análises
-excel_path = r'/home/jaab/Desktop/relatorio/analise.xlsm'
+excel_path = filedialog.askopenfile()
 
 # Token secreto de acesso do Notion
 token_integracao = config('TOKEN')
