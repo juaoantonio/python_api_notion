@@ -11,7 +11,7 @@ from data_hoje import hoje
 # 'Quinta-Feira'
 # 'Sexta-Feira'
 # 'Sábado'
-dia_atual = 'Sexta-Feira'
+dia_atual = hoje()
 
 # Caminho da planilha de análises
 excel_path = r'/home/jaab/Desktop/relatorio/analise.xlsm'
