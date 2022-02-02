@@ -5,9 +5,9 @@ name = "pypi"
 
 [packages]
 requests = "*"
-python-decouple = "*"
 pandas = "*"
 openpyxl = "*"
+tdqm = "*"
 
 [dev-packages]
 
