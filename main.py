@@ -2,6 +2,7 @@ import json
 import os
 import notion
 import csv_manipulator
+from interface import token_getter
 from tkinter import filedialog
 from data_hoje import hoje
 
@@ -17,10 +18,11 @@ dia_atual = hoje()
 
 if not os.path.isfile('settings.json'):
     excel_path = filedialog.askopenfilename()
+    token = token_getter()
 
     config = {
         'excel_path': excel_path,
-        'token': 'secret_TG7Xp8dj3VsNcm2FMskZFlzEdvJMmvoOMXmt81OGk42'
+        'token': token
     }
 
     json_object = json.dumps(config, indent=4)

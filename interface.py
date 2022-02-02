@@ -1,40 +1,26 @@
-from tkinter import *
+import tkinter as tk
 
 
-def print_day(msg):
-    print(msg)
+def token_getter():
+    app = tk.Tk()
+    app.title('Token de Acesso')
+    app.geometry('300x100')
+    app.eval('tk::PlaceWindow . center')
 
+    label_land = tk.Label(app,
+                          text="Token")
+    label_land.grid(column=0, row=0, sticky=tk.W)
 
-dia_semana = [
-    'Segunda-Feira',
-    'Terça-Feira',
-    'Quarta-Feira',
-    'Quinta-Feira',
-    'Sexta-Feira',
-    'Sábado',
-]
+    token = tk.StringVar()
+    entry_land = tk.Entry(app, width=20, textvariable=token)
 
-root = Tk()
-root.title("Selecionar")
+    entry_land.grid(column=1, row=0, padx=10)
 
-# dimensões da janela
-largura = 400
-altura = 400
+    confirm_button = tk.Button(app, text='Confirmar',
+                               command=app.destroy)
 
-# Resolução do nosso sistema
-largura_display = root.winfo_screenwidth()
-altura_display = root.winfo_screenheight()
+    confirm_button.grid(column=0, row=2, pady=10, sticky=tk.W)
 
-# posição da janela
-posx = int((largura_display / 2) - (largura / 2))
-posy = int((altura_display / 2) - (altura / 2))
+    app.mainloop()
 
-root.geometry(f"{largura}x{altura}+{posx}+{posy}")
-
-root.resizable(False, False)
-
-# Botão
-# btn = Button(root, text='Mensagem', command=lambda: print_msg('Olá'))
-# btn.pack()
-
-root.mainloop()
+    return token.get()
